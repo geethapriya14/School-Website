@@ -5,7 +5,7 @@ require_once __DIR__ . '/templates/navigation.php';
 ?>
 
 
-<section style="margin-top: 70px; color: black; padding: 30px; line-height:1.7; background-color:#fff; ">
+<section>
     <h1 style="font-size:32px; color:#1c2b4a; margin: bottom 20px;">About Evaans School</h1>
     <p>
         Evaans School is committed to providing quality education since 1982.

@@ -127,9 +127,9 @@ require_once __DIR__ . '/templates/navigation.php';
         }
     </style>
 </head>
-<body>
+<body style="margin-top: 70px; padding: 30px; line-height:1.7;">
 
-<div class="feedback-container">
+<div class="feedback-container" style="margin-top: 70px; padding: 30px; line-height:1.7;">
     <div class="form-header">
         <h1>Student & Parent Feedback</h1>
         <p>Your opinion matters to us</p>
