@@ -3,262 +3,314 @@
 require_once __DIR__ . '/templates/header.php';
 require_once __DIR__ . '/templates/navigation.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Feedback - Evaans School</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
-        body {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            min-height: 100vh;
-            padding: 20px;
-        }
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    position: relative;
+}
 
-        .feedback-container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            overflow: hidden;
-        }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #3498db;
+    border-radius: 2px;
+}
 
-        .form-header {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            padding: 35px;
-            text-align: center;
-        }
+.feedback-section {
+    padding: 80px 0;
+    background: white;
+}
 
-        .form-header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+.feedback-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+}
 
-        .form-content {
-            padding: 40px;
-        }
+@media (max-width: 992px) {
+    .feedback-container {
+        grid-template-columns: 1fr;
+    }
+}
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+/* Form Styles */
+#feedbackForm {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
 
-        label {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 8px;
-        }
+.form-group {
+    margin-bottom: 25px;
+}
 
-        label.required::after {
-            content: " *";
-            color: red;
-        }
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+}
 
-        input, select, textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 8px;
-            border: 2px solid #e0e0e0;
-            font-size: 15px;
-        }
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
 
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #3498db;
-        }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+/* Star Rating */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
 
-        @media (max-width: 600px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
+.star-rating input {
+    display: none;
+}
 
-        .star-rating {
-            display: flex;
-            gap: 6px;
-        }
+.star-rating label {
+    font-size: 30px;
+    color: #ddd;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: color 0.3s ease;
+}
 
-        .star-rating input {
-            display: none;
-        }
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffc107;
+}
 
-        .star-rating label {
-            font-size: 32px;
-            cursor: pointer;
-            color: #ccc;
-        }
+/* File Upload */
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #ddd;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
 
-        .star-rating input:checked ~ label,
-        .star-rating label:hover,
-        .star-rating label:hover ~ label {
-            color: #ffc107;
-        }
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto;
+}
 
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: #3498db;
-            border: none;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
 
-        .submit-btn:hover {
-            background: #2980b9;
-        }
-    </style>
-</head>
-<body>
+.btn-primary {
+    background: #3498db;
+}
 
-<div class="feedback-container">
-    <div class="form-header">
-        <h1>Student & Parent Feedback</h1>
-        <p>Your opinion matters to us</p>
-    </div>
+.btn-primary:hover {
+    background: #2980b9;
+}
 
-    <div class="form-content">
-        <form id="feedbackForm">
+/* Feedback Info */
+.feedback-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+}
 
-            <!-- FEEDBACK TYPE -->
-            <div class="form-group">
-                <label class="required">Who is giving feedback?</label>
-                <select id="feedbackType" required>
-                    <option value="">Select</option>
-                    <option value="student">Student</option>
-                    <option value="parent">Parent</option>
-                </select>
-            </div>
+.feedback-info h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: white;
+}
 
-            <!-- STUDENT FORM -->
-            <div id="studentForm" style="display:none;">
+.feedback-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
 
-                <div class="form-row">
+.feedback-info li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.feedback-info li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #ffc107;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.note {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+}
+
+.note p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    
+    #feedbackForm {
+        padding: 20px;
+    }
+    
+    .feedback-info {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        width: 100%;
+    }
+    
+    .star-rating label {
+        font-size: 24px;
+        padding: 0 3px;
+    }
+}
+</style>
+
+<main id="main-content">
+    <!-- Feedback Form Section -->
+    <section class="feedback-section">
+        <div class="container">
+            <h2 class="section-title">Share Your Experience</h2>
+            
+            <div class="feedback-container">
+                <form id="feedbackForm" action="submit-feedback.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label class="required">Student Name</label>
-                        <input type="text" placeholder="Student full name">
+                        <label for="feedback_name">Your Name *</label>
+                        <input type="text" id="feedback_name" name="name" required placeholder="Enter your full name">
                     </div>
+                    
                     <div class="form-group">
-                        <label class="required">Grade</label>
-                        <select>
-                            <option value="">Select</option>
-                            <option>1</option><option>2</option><option>3</option>
-                            <option>4</option><option>5</option><option>6</option>
-                            <option>7</option><option>8</option><option>9</option>
-                            <option>10</option><option>11</option><option>12</option>
+                        <label for="feedback_relation">Your Relation *</label>
+                        <select id="feedback_relation" name="relation" required>
+                            <option value="">Select Relationship</option>
+                            <option value="parent">Parent</option>
+                            <option value="student">Student</option>
+                            <option value="alumni">Alumni</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Overall Experience</label>
-                    <div class="star-rating">
-                        <input type="radio" id="s5" name="srate"><label for="s5">★</label>
-                        <input type="radio" id="s4" name="srate"><label for="s4">★</label>
-                        <input type="radio" id="s3" name="srate"><label for="s3">★</label>
-                        <input type="radio" id="s2" name="srate"><label for="s2">★</label>
-                        <input type="radio" id="s1" name="srate"><label for="s1">★</label>
+                    
+                    <div class="form-group">
+                        <label for="feedback_rating">Rating *</label>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5" title="5 stars">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="4 stars">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="3 stars">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="2 stars">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="1 star">★</label>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Student Feedback</label>
-                    <textarea rows="5"></textarea>
+                    
+                    <div class="form-group">
+                        <label for="feedback_message">Your Feedback *</label>
+                        <textarea id="feedback_message" name="message" rows="5" required 
+                                  placeholder="Share your experience with Evaans School..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="feedback_photo">Upload Photo (Optional)</label>
+                        <input type="file" id="feedback_photo" name="photo" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="checkbox" id="feedback_consent" name="consent" required>
+                        <label for="feedback_consent">I consent to having this feedback published on the website *</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </form>
+                
+                <div class="feedback-info">
+                    <h3>Why Share Feedback?</h3>
+                    <ul>
+                        <li>Help other parents make informed decisions</li>
+                        <li>Contribute to our continuous improvement</li>
+                        <li>Celebrate our school community's achievements</li>
+                        <li>Share suggestions for enhancement</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <p><strong>Note:</strong> All feedback is moderated before publication. We respect your privacy and will never share your contact information.</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- PARENT FORM -->
-            <div id="parentForm" style="display:none;">
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="required">Parent Name</label>
-                        <input type="text">
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Student Name</label>
-                        <input type="text">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="required">Student Grade</label>
-                        <select>
-                            <option value="">Select</option>
-                            <option>1</option><option>2</option><option>3</option>
-                            <option>4</option><option>5</option><option>6</option>
-                            <option>7</option><option>8</option><option>9</option>
-                            <option>10</option><option>11</option><option>12</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Mobile Number</label>
-                        <input type="tel">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">School Rating</label>
-                    <div class="star-rating">
-                        <input type="radio" id="p5" name="prate"><label for="p5">★</label>
-                        <input type="radio" id="p4" name="prate"><label for="p4">★</label>
-                        <input type="radio" id="p3" name="prate"><label for="p3">★</label>
-                        <input type="radio" id="p2" name="prate"><label for="p2">★</label>
-                        <input type="radio" id="p1" name="prate"><label for="p1">★</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Parent Feedback</label>
-                    <textarea rows="5"></textarea>
-                </div>
-            </div>
-
-            <button class="submit-btn" type="submit">Submit Feedback</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    const type = document.getElementById("feedbackType");
-    const student = document.getElementById("studentForm");
-    const parent = document.getElementById("parentForm");
-
-    type.addEventListener("change", () => {
-        student.style.display = type.value === "student" ? "block" : "none";
-        parent.style.display = type.value === "parent" ? "block" : "none";
-    });
-
-    document.getElementById("feedbackForm").addEventListener("submit", e => {
-        e.preventDefault();
-        alert("Feedback submitted successfully");
-        e.target.reset();
-        student.style.display = "none";
-        parent.style.display = "none";
-    });
-</script>
-
-</body>
-</html>
+        </div>
+    </section>
+</main>
 
 <!--footer>
 <?php
