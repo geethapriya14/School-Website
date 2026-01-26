@@ -143,6 +143,7 @@ require_once __DIR__ . '/templates/navigation.php';
     text-align: center;
 }
 
+<<<<<<< HEAD
 .btn-primary {
     background: #3498db;
 }
@@ -150,6 +151,20 @@ require_once __DIR__ . '/templates/navigation.php';
 .btn-primary:hover {
     background: #2980b9;
 }
+=======
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body style="margin-top: 70px; padding: 30px; line-height:1.7;">
+
+<div class="feedback-container" style="margin-top: 70px; padding: 30px; line-height:1.7;">
+    <div class="form-header">
+        <h1>Student & Parent Feedback</h1>
+        <p>Your opinion matters to us</p>
+    </div>
+>>>>>>> 149c2c091b3486a4eab6ed4e6c054868cba92ee8
 
 /* Feedback Info */
 .feedback-info {

@@ -26,10 +26,26 @@ require_once _DIR_ . '/templates/navigation.php';
                 in the years to come.
             </p>
 
+<<<<<<< HEAD
             <p style="font-weight: bold; color: #ff5e14; font-size: 1.1rem; border-top: 1px solid #eee; padding-top: 15px;">
                 We Are Here To Give A Quality Education With Indian Standards To Everyone.
             </p>
         </div>
+=======
+<section>
+    <h1 style="font-size:32px; color:#1c2b4a; margin: bottom 20px;">About Evaans School</h1>
+    <p>
+        Evaans School is committed to providing quality education since 1982.
+        We focus on academics, sports, and holistic development of every student.
+    </p>
+    <h2 style="margin-top:30px; color:#222;">Our Journey</h2>
+    <p>
+        Founded in 1982, Evaans School is managed by the Panchaliammal Subbarayan
+        Educational Trust. With over four decades of excellence in education,
+        the institution has consistently focused on shaping young minds through
+        strong academic foundations, discipline, and character development.
+    </p>
+>>>>>>> 149c2c091b3486a4eab6ed4e6c054868cba92ee8
 
         <div style="flex: 1; min-width: 300px;">
             <img src="school-building.jpg" alt="Evaans School Building" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">

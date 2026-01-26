@@ -2,7 +2,7 @@
 <header class="navbar" style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; position:fixed; top:0; left:0; width:100%; z-index:1000; background:white; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
 
     <!-- Left: Logo + School Name -->
-    <div class="logo" style="display:flex; align-items:center;">
+    <div class="logo" style="display:flex; align-items:center">
         <img src="/Evaans_School_Website/assets/images/favicon_02.png" alt="Evaans Logo" style="width:90px; height:90px; margin-right:10px;">
         <span style="font-size:26px; font-weight:bold; color:black;">Evaans School</span>
     </div>
@@ -21,12 +21,12 @@
                 <li><a href="/Evaans_School_Website/index.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Home</a></li>
                 <li><a href="/Evaans_School_Website/about.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">About</a></li>
                 <li><a href="/Evaans_School_Website/academics.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Academics</a></li>
-                <li><a href="/Evaans_School_Website/admissions.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Admissions</a></li>
                 <li><a href="/Evaans_School_Website/contact/contact.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Contact</a></li>
                 <li><a href="/Evaans_School_Website/events.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Events</a></li>
                 <li><a href="/Evaans_School_Website/facilities.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Facilities</a></li>
                 <li><a href="/Evaans_School_Website/gallery.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Gallery</a></li>
-                <li><a href="/Evaans_School_Website/teachers.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Teachers</a></li>
+                <li><a href="/Evaans_School_Website/staff.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Teachers</a></li>
+                <li><a href="/Evaans_School_Website/submit-feedback.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Feedbacks</a></li>
                 <li><a href="/Evaans_School_Website/testimonials.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Testimonials</a></li>
                 <li><a href="/Evaans_School_Website/payments.php" style="text-decoration:none; color:black; display:block; padding:5px 10px;">Payments</a></li>
             </ul>

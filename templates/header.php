@@ -6,4 +6,4 @@
     <title>Evaans Matriculation Higher Secondary School</title>
     <link rel="icon"  href="assets/images/favicon_02.png">
 </head>
-<body>
+<body style="margin-top: 70px; padding: 30px; line-height:1.7;" >
