@@ -1,7 +1,7 @@
 <?php
 // Include templates
-require_once _DIR_ . '/templates/header.php';
-require_once _DIR_ . '/templates/navigation.php';
+require_once __DIR__ . '/templates/header.php';
+require_once __DIR__ . '/templates/navigation.php';
 ?>
 <section style="margin-top: 80px; font-family: 'Segoe UI', Arial, sans-serif; color: #333; padding: 40px 10%; line-height: 1.8;">
     
@@ -98,5 +98,5 @@ require_once _DIR_ . '/templates/navigation.php';
     </div>
 </section>
 <?php
-require_once _DIR_ . '/templates/footer.php';
+require_once __DIR__ . '/templates/footer.php';
 ?>
