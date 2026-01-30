@@ -45,7 +45,7 @@ require_once __DIR__ . '/templates/navigation.php';
     </p>
 
         <div style="flex: 1; min-width: 300px;">
-            <img src="school-building.jpg" alt="Evaans School Building" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    
         </div>
     </div>
 
