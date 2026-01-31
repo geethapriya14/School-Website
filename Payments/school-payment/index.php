@@ -1,3 +1,7 @@
+<?php
+    require_once(__DIR__ . '/config.php');
+    $csrfToken = generateCSRFToken();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -347,11 +351,6 @@
     </style>
 </head>
 <body>
-
-<?php
-    require_once(__DIR__ . '/config.php');
-    $csrfToken = generateCSRFToken();
-?>
 
 <div class="main-container">
     
