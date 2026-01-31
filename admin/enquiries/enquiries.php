@@ -1,31 +1,50 @@
 <?php
 include '../templates/admin_header.php';
 include '../templates/admin_sidebar.php';
-include '../../templates/config.php';
+?>
+<?php
+include_once __DIR__ . "/../../templates/config.php";
 
-$result = mysqli_query($conn, "SELECT * FROM enquiries");
+$sql = "SELECT * FROM contact_enquiries";
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
 ?>
 
-<main>
-    <h3>Enquiry Submissions</h3>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enquiry Submissions</title>
+</head>
+<body>
 
-    <table border="1">
+<h2>Enquiry Submissions</h2>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Enquiry Type</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
+
+    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Message</th>
+            <td><?php echo $row['name']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+            <td><?php echo $row['phone_number']; ?></td>
+            <td><?php echo $row['enquiry_type']; ?></td>
+            <td><?php echo $row['message']; ?></td>
+            <td><?php echo $row['created_at']; ?></td>
         </tr>
+    <?php } ?>
 
-        <?php while($row = mysqli_fetch_assoc($result)) { ?>
-        <tr>
-            <td><?= $row['name'] ?></td>
-            <td><?= $row['email'] ?></td>
-            <td><?= $row['phone'] ?></td>
-            <td><?= $row['message'] ?></td>
-        </tr>
-        <?php } ?>
-    </table>
-</main>
+</table>
 
-<?php include '../templates/admin_footer.php'; ?>
+</body>
+</html>
+

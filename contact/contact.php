@@ -16,7 +16,7 @@ require_once __DIR__ . '/../templates/navigation.php';
     <h1>Contact Us</h1>
     <p>Please fill out the form below for Admissions or General Enquiry. For more details, chat with us on WhatsApp.</p>
 
-    <form action="whatsapp.php" method="post">
+    <form action="/Evaans_School_Website/enquiry_submit.php" method="post">
         <table cellspacing="10">
             <tr>
                 <td><label for="name">Full Name:</label></td>
@@ -27,13 +27,13 @@ require_once __DIR__ . '/../templates/navigation.php';
                 <td><input type="email" id="email" name="email" required style="width: 250px;"></td>
             </tr>
             <tr>
-                <td><label for="phone">Phone Number:</label></td>
-                <td><input type="text" id="phone" name="phone" required style="width: 250px;"></td>
+                <td><label for="phone_number">Phone Number:</label></td>
+                <td><input type="text" id="phone_number" name="phone_number" required style="width: 250px;"></td>
             </tr>
             <tr>
-                <td><label for="type">Enquiry Type:</label></td>
+                <td><label for="enquiry_type">Enquiry Type:</label></td>
                 <td>
-                    <select id="type" name="type" required style="width: 260px;">
+                    <select id="enquiry_type" name="enquiry_type" required style="width: 260px;">
                         <option value="">--Select--</option>
                         <option value="admissions">Admissions</option>
                         <option value="general">General Enquiry</option>
