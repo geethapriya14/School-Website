@@ -1,0 +1,36 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# Git Ignore - Protect Sensitive Files
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Environment variables (NEVER commit this!)
+.env
+.env.local
+.env.*.local
+
+# Log files
+logs/
+*.log
+payment_logs/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# Composer dependencies (already in vendor, but good practice)
+/vendor/
+
+# Temporary files
+*.tmp
+*.temp
